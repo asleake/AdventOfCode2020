@@ -9,12 +9,12 @@ targetBag = 'shiny gold'
 organizedBags = bagSplit(data)
 
 def FirstPart():
-    """ Find ... """
+    """ Find how many colors of bag eventually contain a shiny gold bag """
     return howManyBagColorsContain(targetBag, organizedBags)
     
 
 def SecondPart():
-    """ Find ... """
+    """ Find the total number of bags that a shiny gold bag contains """
     return countAllBagsIn(targetBag, organizedBags)
 
 
