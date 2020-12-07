@@ -2,7 +2,7 @@
 puzzles from Day 4."""
 
 from common.imports import importAdventFile
-from common.passport import Passport
+from common.airport_functions import Passport
 data = importAdventFile('data/Day4Input')
 
 def FirstPart():
