@@ -1,5 +1,5 @@
-"""Day 4 of Advent of Code 2020. Running this file will print out the correct answers to the two
-puzzles from Day 4."""
+"""Day 5 of Advent of Code 2020. Running this file will print out the correct answers to the two
+puzzles from Day 5."""
 
 from common.imports import importAdventFile
 from common.airport_functions import getSeatIDFromBoardingPass
