@@ -1,7 +1,7 @@
 """Day 6 of Advent of Code 2020. Running this file will print out the correct answers to the two
 puzzles from Day 6."""
 
-from common.imports import importAdventFile, importAdventFileOnEmptyLines
+from common.imports import importAdventFileOnEmptyLines
 from common.airport_functions import checkCustomsGroup, checkCustomsGroup_incorrect
 data = importAdventFileOnEmptyLines('data/Day6Input')
 
