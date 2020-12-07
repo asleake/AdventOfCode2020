@@ -3,18 +3,17 @@ puzzles from Day 5."""
 
 from common.imports import importAdventFile
 from common.airport_functions import getSeatIDFromBoardingPass
-part1Data = importAdventFile('data/Day5Input')
-part2Data = importAdventFile('data/Day5Input_2')
+data = importAdventFile('data/Day5Input')
 
 def FirstPart():
     """ Find ... """ 
-    seatIDs = [getSeatIDFromBoardingPass(datum) for datum in part1Data]
+    seatIDs = [getSeatIDFromBoardingPass(datum) for datum in data]
     return max(seatIDs)
 
 
 def SecondPart():
     """ Find ... """ 
-    seatIDs = [getSeatIDFromBoardingPass(datum) for datum in part1Data]
+    seatIDs = [getSeatIDFromBoardingPass(datum) for datum in data]
     for seatID in seatIDs:
         for seatID in range(min(seatIDs),max(seatIDs)):
             if seatID not in seatIDs:
