@@ -1,6 +1,20 @@
 """ Airport Functions """
 import re, math
 
+def checkCustomsGroup(responses):
+    numberOfMatches = 0
+    if len(responses) < 2:
+        return(len(responses[0]))
+    for answer in responses[0]:
+        restOfGroup = responses[1:]
+        count = len([value for response in restOfGroup for value in response if value==answer])
+        if count == len(responses) - 1:
+            numberOfMatches += 1
+    return numberOfMatches
+
+def checkCustomsGroup_incorrect(responses):
+    return len(set(''.join(responses)))
+
 def getSeatIDFromBoardingPass(boardingPassString):
     rowString = re.search('[FB]+',boardingPassString).group()
     columnString = re.search('[LR]+',boardingPassString).group()
@@ -22,10 +36,6 @@ def getSeatIDFromBoardingPass(boardingPassString):
             column[0] += math.ceil(columnRange/2)
 
     return row[0]*8 + column[0]
-
-
-
-
 
 class Passport(object):
     def __init__(self,data):
