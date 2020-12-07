@@ -1,6 +1,30 @@
 """ Airport Functions """
 import re, math
 
+def countAllBagsIn(bag,bagList):
+    currentBag = bagList[bag]
+    total = 0
+    for nextBag in currentBag:
+        nextBagCount = int(currentBag[nextBag])
+        total += nextBagCount
+        if bagList[nextBag]:
+            total += nextBagCount * countAllBagsIn(nextBag, bagList)
+            
+    return total
+
+def howManyBagColorsContain(targetBag,bagList):
+    return sum([isBagAInBagB(targetBag,searchedBag,bagList) for searchedBag in bagList.keys()])
+    
+def isBagAInBagB(bagA,bagB,bagDict):
+    currentBag = bagDict[bagB]
+    if bagA in currentBag.keys():
+        return True
+    else:
+        cumulativeOr = False
+        for nextBag in currentBag:
+            cumulativeOr = cumulativeOr or isBagAInBagB(bagA,nextBag,bagDict)
+        return cumulativeOr
+
 def checkCustomsGroup(responses):
     numberOfMatches = 0
     if len(responses) < 2:
@@ -44,8 +68,6 @@ class Passport(object):
         self.requiredFields = ['byr','iyr','eyr','hgt','hcl','ecl','pid','cid']
         self.validEyeColors = ['amb','blu','brn','gry','grn','hzl','oth']
 
-        
-    
     def checkForDataFields(self):
         # Check for all types
         for field in self.requiredFields:
