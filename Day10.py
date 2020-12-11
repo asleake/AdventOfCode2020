@@ -2,18 +2,18 @@
 puzzles from Day 10."""
 
 from common.imports import importAdventFile
-from numpy import prod
+from math import prod
 
 data = importAdventFile('data/Day10Input')
 data = [int(value) for value in data]
 
 def tribonacci(i):
-    tribonacciNumbers = [0,0,1]
+    tribonacciNumbers = [1,1,2]
     index = 0
     while index < i:
         tribonacciNumbers.append(sum(tribonacciNumbers[index:]))
         index += 1
-    return tribonacciNumbers[i+2]
+    return tribonacciNumbers[i]
 
 def FirstPart():
     """ Find ... """
@@ -27,6 +27,10 @@ def SecondPart():
     differences = [sortedData[a+1]-sortedData[a] for a in range(len(sortedData)-1)]
     diffString = ''.join([str(num) for num in differences])
     diffStrings = diffString.split('3')
+    testing = [tribonacci(len(string)) for string in diffStrings]
+    testOutput = []
+    for i,num in enumerate(testing):
+        testOutput.append(prod(testing[0:i]))
     return prod([tribonacci(len(string)) for string in diffStrings])
     # Gets the right answer for both test inputs, but not the real input
 
